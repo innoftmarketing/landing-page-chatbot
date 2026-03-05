@@ -60,40 +60,13 @@ function Hero() {
               Un assistant IA qui connait vos produits, repond en Darija, et convertit vos visiteurs — meme a 3h du matin.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start mb-10">
-              <a
-                href="#contact"
-                className="w-full sm:w-auto rounded-full bg-innoft-blue px-7 py-3 text-sm font-600 text-white transition-all hover:bg-innoft-blue/90 hover:shadow-lg hover:shadow-innoft-blue/25 flex items-center justify-center gap-2"
-              >
-                Nous Contacter
-                <ArrowRight size={16} />
-              </a>
-              <a
-                href="#how-it-works"
-                className="w-full sm:w-auto rounded-full border border-gray-300 bg-white px-7 py-3 text-sm font-600 text-innoft-dark transition-all hover:border-innoft-blue/30 hover:bg-innoft-blue/5 text-center"
-              >
-                Comment ca marche
-              </a>
-            </div>
-
-            {/* Feature pills */}
-            <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start">
-              {[
-                { icon: <Bot size={16} />, label: "Agent Support" },
-                { icon: <Calendar size={16} />, label: "Agent Booking" },
-                { icon: <Users size={16} />, label: "Agent Commercial" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-200 shadow-sm"
-                >
-                  <div className="w-7 h-7 rounded-full bg-innoft-blue/10 text-innoft-blue flex items-center justify-center">
-                    {item.icon}
-                  </div>
-                  <span className="text-xs font-600 text-innoft-dark">{item.label}</span>
-                </div>
-              ))}
-            </div>
+            <a
+              href="#contact"
+              className="w-full sm:w-auto rounded-full bg-innoft-blue px-8 py-3.5 text-sm font-600 text-white transition-all hover:bg-innoft-blue/90 hover:shadow-lg hover:shadow-innoft-blue/25 inline-flex items-center justify-center gap-2"
+            >
+              Reserver un Appel
+              <ArrowRight size={16} />
+            </a>
           </div>
 
           {/* Right - Phone mockup */}
