@@ -1,33 +1,16 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    router.push("/thank-you");
   };
-
-  if (submitted) {
-    return (
-      <div className="rounded-2xl bg-white p-10 border border-gray-200 text-center">
-        <div className="w-16 h-16 rounded-full bg-innoft-cyan-light mx-auto mb-4 flex items-center justify-center">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00E5CC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </div>
-        <h3 className="font-[family-name:var(--font-sora)] text-xl font-700 text-innoft-dark mb-2">
-          Merci !
-        </h3>
-        <p className="text-innoft-text-secondary text-sm">
-          Notre equipe vous contactera dans les 24h.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <form
