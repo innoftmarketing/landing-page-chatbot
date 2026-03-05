@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   MessageCircle,
   Bot,
@@ -698,9 +699,8 @@ function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-white/10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <div className="font-[family-name:var(--font-sora)] text-xl font-800 mb-4">
-              <span className="text-innoft-blue">Inn</span>
-              <span className="text-white">oft</span>
+            <div className="mb-4">
+              <Image src="/logo.png" alt="Innoft" width={90} height={58} className="h-8 w-auto brightness-0 invert" />
             </div>
             <p className="text-sm text-white/40 leading-relaxed mb-4">
               Le chatbot IA qui transforme votre site web en machine a ventes.

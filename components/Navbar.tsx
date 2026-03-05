@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -16,9 +17,8 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="font-[family-name:var(--font-sora)] text-xl font-800 tracking-tight flex items-center gap-1">
-          <span className="text-innoft-blue">Inn</span>
-          <span className="text-innoft-dark">oft</span>
+        <a href="#" className="flex items-center">
+          <Image src="/logo.png" alt="Innoft" width={90} height={58} className="h-8 w-auto" priority />
         </a>
 
         {/* Desktop nav */}

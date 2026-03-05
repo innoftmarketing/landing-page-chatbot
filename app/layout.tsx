@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   title: "Innoft — Chatbot IA pour Votre Business",
   description:
     "Transformez chaque visiteur en client avec un chatbot IA intelligent. Réponses instantanées 24/7, multilingue, connecté à vos produits.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 const FB_PIXEL_ID = "766036584632817";
