@@ -53,7 +53,7 @@ export default function ContactForm() {
       </div>
 
       <input
-        type="url"
+        type="text"
         placeholder="Site web (optionnel)"
         className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-innoft-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-innoft-blue/20 focus:border-innoft-blue transition-all"
       />
