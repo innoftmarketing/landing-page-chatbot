@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Loader2 } from "lucide-react";
 
-const GOOGLE_SCRIPT_URL = "REPLACE_WITH_YOUR_APPS_SCRIPT_URL";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyuidl4YW5AN3t3w74-nKoWTcotlkI3aJvqoleTaTo5jjOX1awPuruvhbeW20T_Gc5kOg/exec";
 
 export default function ContactForm() {
   const router = useRouter();
