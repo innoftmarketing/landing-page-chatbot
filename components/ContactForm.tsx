@@ -4,15 +4,15 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Loader2 } from "lucide-react";
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyuidl4YW5AN3t3w74-nKoWTcotlkI3aJvqoleTaTo5jjOX1awPuruvhbeW20T_Gc5kOg/exec";
-
 export default function ContactForm() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
 
     const form = e.currentTarget;
     const data = {
@@ -25,18 +25,21 @@ export default function ContactForm() {
     };
 
     try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const res = await fetch("/api/leads", {
         method: "POST",
-        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-    } catch {
-      // Still redirect even if fetch fails — lead is not lost since
-      // we go to thank-you page and can follow up manually
-    }
 
-    router.push("/thank-you");
+      if (!res.ok && res.status !== 207) {
+        throw new Error("Submission failed");
+      }
+
+      router.push("/thank-you");
+    } catch {
+      setError("Une erreur est survenue. Veuillez réessayer.");
+      setLoading(false);
+    }
   };
 
   return (
@@ -89,6 +92,12 @@ export default function ContactForm() {
         placeholder="Site web (optionnel)"
         className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-innoft-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-innoft-blue/20 focus:border-innoft-blue transition-all"
       />
+
+      {error && (
+        <p className="text-sm text-red-600 bg-red-50 rounded-lg px-4 py-2">
+          {error}
+        </p>
+      )}
 
       <button
         type="submit"
